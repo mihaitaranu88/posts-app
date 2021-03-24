@@ -33,12 +33,12 @@ class SyncUsersJob implements ShouldQueue
     public function handle()
     {
         foreach ($this->users as $user){
-            $u = User::find($user->id);
+            $u = User::find($user['id']);
             if(empty($u)){
-                $u = new User((array) $user);
+                $u = new User($user);
                 $u->save();
             }
-            $u->update((array) $user);
+            $u->update($user);
         }
     }
 }

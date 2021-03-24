@@ -39,11 +39,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        $user = User::where('id',$id)->with('posts')->first();
-
-        if(!$user){
-            abort(404);
-        }
+        $user = User::where('id',$id)->with('posts')->firstOrFail();
 
         return $user;
     }

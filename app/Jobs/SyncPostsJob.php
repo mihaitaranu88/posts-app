@@ -33,7 +33,7 @@ class SyncPostsJob implements ShouldQueue
     public function handle()
     {
         foreach ($this->posts as $post){
-            Post::updateOrCreate(['id' => $post->id ],(array) $post);
+            Post::updateOrCreate(['id' => $post['id'] ], $post);
         }
     }
 }
