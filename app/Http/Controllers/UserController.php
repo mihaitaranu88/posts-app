@@ -58,7 +58,7 @@ class UserController extends Controller
      */
     public function update(UserRequest $request, User $user)
     {
-//        $user->update($request->except(['id']));
+        $user->update($request->except(['id']));
 
         return $user;
     }
